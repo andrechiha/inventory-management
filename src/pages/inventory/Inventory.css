@@ -1,0 +1,167 @@
+.inventory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: page-in 0.4s var(--ease-out);
+}
+
+.inventory-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Search ─── */
+
+.inv-search-wrap { max-width: 480px; }
+
+.inv-search {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.inv-search::placeholder { color: var(--text-muted); }
+
+.inv-search:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+/* ─── Table ─── */
+
+.table-wrap {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.inv-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.inv-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+}
+
+.inv-table tbody tr {
+  transition: background 0.15s;
+}
+
+.inv-table tbody tr:hover {
+  background: var(--bg-surface-hover);
+}
+
+.inv-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.row-low {
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.row-low:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.col-num { text-align: right; }
+.col-action { text-align: center; width: 140px; }
+
+.cell-name { font-weight: 600; color: var(--text-primary); }
+
+.cell-desc {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inv-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem !important;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.qty-low {
+  color: #f87171;
+  font-weight: 700;
+}
+
+.action-btns {
+  display: inline-flex;
+  gap: 0.375rem;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.btn-sm:active { transform: scale(0.96); }
+
+.btn-edit {
+  background: var(--bg-surface-active);
+  color: var(--text-secondary);
+}
+
+.btn-edit:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+.btn-delete {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+}
+
+.btn-delete:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.btn-save { background: var(--accent); color: #fff; }
+.btn-save:hover { background: var(--accent-hover); }
+.btn-cancel { background: var(--bg-surface-active); color: var(--text-muted); }
+.btn-cancel:hover { background: rgba(255, 255, 255, 0.1); }
