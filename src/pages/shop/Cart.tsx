@@ -92,14 +92,21 @@ export default function Cart() {
                 </td>
                 <td className="col-num">${c.item.price.toFixed(2)}</td>
                 <td className="col-num">
-                  <input
-                    type="number"
-                    className="cart-qty-input"
-                    value={c.quantity}
-                    min={1}
-                    max={c.item.quantity}
-                    onChange={(e) => updateQty(c.item.id, Number(e.target.value))}
-                  />
+                  <div className="cart-qty-stepper">
+                    <button
+                      type="button"
+                      className="qty-btn"
+                      onClick={() => updateQty(c.item.id, c.quantity - 1)}
+                      disabled={c.quantity <= 1}
+                    >−</button>
+                    <span className="qty-value">{c.quantity}</span>
+                    <button
+                      type="button"
+                      className="qty-btn"
+                      onClick={() => updateQty(c.item.id, c.quantity + 1)}
+                      disabled={c.quantity >= c.item.quantity}
+                    >+</button>
+                  </div>
                 </td>
                 <td className="col-num">${(c.item.price * c.quantity).toFixed(2)}</td>
                 <td className="col-action">
