@@ -56,16 +56,6 @@ export const useOrderStore = create<OrderState>((set, get) => ({
       return false;
     }
 
-    // Decrement stock via Edge Function (bypasses RLS safely)
-    const { error: decrementErr } = await supabase.functions.invoke('decrement-stock', {
-      body: {
-        items: items.map((c) => ({ item_id: c.item.id, quantity: c.quantity })),
-      },
-    });
-    if (decrementErr) {
-      console.error('Stock decrement failed:', decrementErr);
-    }
-
     // Refresh inventory so the shop UI shows updated stock
     useInventoryStore.getState().fetch();
 
